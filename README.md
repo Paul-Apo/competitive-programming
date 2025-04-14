@@ -1,1 +1,1 @@
-These are some the problems I solve on leet code and hackerrank.
+These are some of the problems I solve on leet code and hackerrank.
