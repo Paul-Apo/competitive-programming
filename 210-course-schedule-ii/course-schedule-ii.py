@@ -1,30 +1,27 @@
 class Solution:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
-        graph = defaultdict(list)
-        indegree = [0] * numCourses
 
-        # Build graph and indegree array
-        for course, prereq in prerequisites:
-           graph = defaultdict(list)
-        indegree = [0] * numCourses
-
-        # Build graph and indegree array
-        for course, prereq in prerequisites:
-            graph[prereq].append(course)
-            indegree[course] += 1
-
-        # Queue for courses with no prerequisites
-        queue = deque([i for i in range(numCourses) if indegree[i] == 0])
-        result = []
-
-        while queue:
-            curr = queue.popleft()
-            result.append(curr)
-
-            for neighbor in graph[curr]:
-                indegree[neighbor] -= 1
-                if indegree[neighbor] == 0:
-                    queue.append(neighbor)
-
-        # If we could take all courses
-        return result if len(result) == numCourses else []
+        prereq = {c: [] for c in range(numCourses)}
+        for crs, preq in prerequisites:
+            prereq[crs].append(preq)
+        visit, cycle = set(), set()
+        output = []
+        def dfs(crs):
+            if crs in cycle:
+                return False
+            if crs in visit:
+                return True
+            cycle.add(crs)
+            for pre in prereq[crs]:
+                if dfs(pre) == False:
+                    return False
+            cycle.remove(crs)
+            visit.add(crs)
+            output.append(crs)
+            return True
+        
+        for c in range(numCourses):
+            if dfs(c) == False:
+                return []
+        return output
+        
