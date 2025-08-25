@@ -1,15 +1,21 @@
 class Solution:
     def minSteps(self, n: int) -> int:
-        
-        dp = [1000] * (n + 1)
-        dp[1] = 0
+        cache = {}
+        def dfs(count, clipboard):
+            if count == n:
+                return 0
+            if count > n:
+                return float("inf")
+            if (count, clipboard) in cache:
+                return cache[(count, clipboard)]
+            res1 = 1 + dfs(count + clipboard, clipboard)
+            res2 = 2  + dfs(count + count, count)
+            cache[(count, clipboard)] = min(res1, res2)
+            return min(res1, res2)
+        if  n == 1:
+            return 0
+        return 1 + dfs(1, 1)
 
-        for i in range(2, n + 1):
-            for j in range(1, 1 + (i // 2)):
-                if i % j == 0:
-                    dp[i] = min(dp[i], dp[j] + i // j)
-
-        return dp[n]
 
 
 
