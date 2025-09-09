@@ -1,5 +1,5 @@
 class Solution:
-    def findRedundantConnection(self, edges):
+    def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
         n = len(edges)
         root = list(range(n + 1))
         size = [1] * (n + 1)
@@ -8,7 +8,7 @@ class Solution:
             while x != root[x]:
                 root[x] = root[root[x]]
                 x = root[x]
-            return x
+            return root[x]
         
         def union(x, y):
             root_x = find(x)
