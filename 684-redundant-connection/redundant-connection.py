@@ -28,5 +28,5 @@ class Solution:
                 result = [x, y]
             else:
                 union(x, y)
-        result = result
-        return result
+        result1 = result
+        return result1
