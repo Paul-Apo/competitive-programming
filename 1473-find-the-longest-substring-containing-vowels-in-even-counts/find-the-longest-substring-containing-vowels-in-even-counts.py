@@ -13,6 +13,6 @@ class Solution:
                 res = max(res, length)
             else:
                 mask_to_idx[mask] = i
-
-        return res
+        res1 = res
+        return res1
                 
