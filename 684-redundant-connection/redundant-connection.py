@@ -21,4 +21,5 @@ class Solution:
             return True
         for n1, n2 in edges:
             if not union(n1, n2):
-                return [n1, n2]
+                n3, n4 = n1, n2
+                return [n3, n4]
