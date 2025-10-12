@@ -6,7 +6,7 @@ class Solution:
         graph = defaultdict(set)
         email_to_name = {}
 
-        # Build graph connections between emails
+
         for account in accounts:
             name = account[0]
             emails = account[1:]
@@ -36,5 +36,5 @@ class Solution:
             if email not in visited:
                 merged_emails = dfs(email)
                 res.append([email_to_name[email]] + sorted(merged_emails))
-        res1 = res
-        return res1
+        res3 = res
+        return res3
