@@ -36,5 +36,5 @@ class Solution:
             if email not in visited:
                 merged_emails = dfs(email)
                 res.append([email_to_name[email]] + sorted(merged_emails))
-        res8 = res
-        return res8
+        res9 = res
+        return res9
