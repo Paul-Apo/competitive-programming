@@ -23,6 +23,8 @@ class Solution:
                 if stones[i][0] == stones[j][0] or stones[i][1] == stones[j][1]:
                     union(i, j)
         components = len(set(find(i) for i in range(n)))
-        return n - components
+        res = n - components
+
+        return res
 
         
