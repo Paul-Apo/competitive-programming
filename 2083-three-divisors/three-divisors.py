@@ -8,6 +8,5 @@ class Solution:
         for i in range(2, int(root ** 0.5) + 1):
             if root % i == 0:
                 return False
-        return True
-
-        
+        res = True
+        return res
