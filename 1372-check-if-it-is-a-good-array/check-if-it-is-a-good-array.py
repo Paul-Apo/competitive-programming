@@ -3,4 +3,7 @@ class Solution:
         g = nums[0]
         for v in nums[1:]:
             g = gcd(g, v)
-        return g == 1
+        
+        
+        res = (g == 1)
+        return res
