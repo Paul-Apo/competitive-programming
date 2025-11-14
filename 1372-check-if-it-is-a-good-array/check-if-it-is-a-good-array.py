@@ -3,5 +3,5 @@ class Solution:
         g = nums[0]
         for v in nums[1:]:
             g = gcd(g, v)
-        res4 = (g == 1)
-        return res4
+        res5 = (g == 1)
+        return res5
